@@ -1,5 +1,10 @@
 module Main where
 
+
+-- Import our custom module. 
+-- This brings 'SensorReading' and 'processReading' into scope.
+import Sensors
+
 -- 1. THE PURE WORLD
 -- This function is pure. It takes an Int and returns an Int.
 -- It cannot print, it cannot read files. It just computes.
@@ -24,3 +29,12 @@ main = do
     -- Print the result. 'show' turns the Int back into a String.
     -- '++' concatenates strings.
     putStrLn ("The double of " ++ show number ++ " is " ++ show result)
+   
+    putStrLn "--- Sensor Test System ---"
+    
+    let reading1 = Temperature 24.5
+    
+    let reading2 = HardwareError "I2C Bus timeout"
+
+    putStrLn (processReading reading1)
+    putStrLn (processReading reading2)

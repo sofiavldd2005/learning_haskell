@@ -67,7 +67,9 @@ executable hello-haskell
     build-depends:    base ^>=4.18.3.0
 
     -- Directories containing source files.
-    hs-source-dirs:   app
+    hs-source-dirs:   app, src
+
+    other-modules:    Sensors
 
     -- Base language which the package is written in.
     default-language: Haskell2010
