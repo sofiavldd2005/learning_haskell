@@ -53,6 +53,20 @@ data SensorReading =
     deriving (Show)
 ```
 
+- **Maybe** (Rust's Option)
+When a computation might not return a value, Haskell uses the Maybe type. It is built directly into the standard library like this:
+
+```haskell
+data Maybe a = Just a | Nothing
+```
+
+- **Either** (Rust's Result)
+If a computation can fail and you want to know why it failed, you use Either. It has a "Left" side (traditionally used for errors) and a "Right" side (used for the correct/successful value).
+
+```haskell
+data Either a b = Left a | Right b
+```
+
 ---
 ## Modules
 

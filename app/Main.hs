@@ -32,9 +32,18 @@ main = do
    
     putStrLn "--- Sensor Test System ---"
     
-    let reading1 = Temperature 24.5
-    
-    let reading2 = HardwareError "I2C Bus timeout"
+    let goodReading = Temperature 24.5
+    let badReading = HardwareError "I2C Bus timeout"
+    let hotReading = Temperature 150.0
+    putStrLn (processReading goodReading)
+    putStrLn (processReading badReading)
 
-    putStrLn (processReading reading1)
-    putStrLn (processReading reading2)
+    -- Handling Maybe using a case statement (like Rust's match)
+    case getTemperature goodReading of
+        Just temp -> putStrLn ("Extracted temperature: " ++ show temp)
+        Nothing   -> putStrLn "Reading was not a temperature."
+
+    -- Handling Either
+    case calibrateTemp hotReading of
+        Left errMsg   -> putStrLn ("ALARM: " ++ errMsg)
+        Right newTemp -> putStrLn ("Calibrated OK: " ++ show newTemp)
