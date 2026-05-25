@@ -3,7 +3,8 @@ module Main where
 
 -- Import our custom module. 
 -- This brings 'SensorReading' and 'processReading' into scope.
-import Sensors
+import Lesson1_2_Types
+import Lesson3_Lists
 
 -- 1. THE PURE WORLD
 -- This function is pure. It takes an Int and returns an Int.
@@ -47,3 +48,14 @@ main = do
     case calibrateTemp hotReading of
         Left errMsg   -> putStrLn ("ALARM: " ++ errMsg)
         Right newTemp -> putStrLn ("Calibrated OK: " ++ show newTemp)
+
+
+    -- Lesson 3 : Recursive lists 
+    --
+    let numbers = [1,2,3,4, 5]
+    putStrLn("Doubled numbers:" ++ show(doubleAll numbers))
+
+    let rawADC = [500, -12, 1023, 1024, 256, -5]
+
+    putStrLn ("Filtered ADC readings: " ++ show (filterValidADC rawADC))
+

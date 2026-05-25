@@ -69,7 +69,7 @@ executable hello-haskell
     -- Directories containing source files.
     hs-source-dirs:   app, src
 
-    other-modules:    Sensors
+    other-modules:    Lesson1_2_Types, Lesson3_Lists 
 
     -- Base language which the package is written in.
     default-language: Haskell2010

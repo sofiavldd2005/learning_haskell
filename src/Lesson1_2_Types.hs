@@ -1,4 +1,4 @@
-module Sensors where
+module Lesson1_2_Types where
 
 -- Our rust "enum": the summ type
 data SensorReading = Temperature Float | Humidity Float | HardwareError String
